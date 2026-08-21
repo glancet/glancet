@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Support
+    url: https://glancet.io/support
+    about: Licence, payment and account questions.
+  - name: Roadmap
+    url: https://glancet.io/#roadmap
+    about: What is planned, and vote on what matters to you.

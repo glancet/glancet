@@ -1,0 +1,66 @@
+name: Bug report
+description: Something in Glancet behaves wrong
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Glancet's build number is the fastest way to tell whether you already
+        have a fix: **menu-bar icon → the first menu item**, e.g.
+        `Glancet 0.1.1 (build 36)`.
+  - type: input
+    id: version
+    attributes:
+      label: Glancet version
+      description: From the first item in the menu-bar menu.
+      placeholder: 0.1.1 (build 36)
+    validations: {required: true}
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version
+      placeholder: "15.2"
+    validations: {required: true}
+  - type: dropdown
+    id: agent
+    attributes:
+      label: Which agent
+      multiple: true
+      options:
+        - Claude Code
+        - Gemini CLI
+        - Codex
+        - Cursor
+        - Kimi CLI
+        - Qwen Code
+        - Qoder
+        - CodeBuddy
+        - Factory
+        - OpenCode
+        - Not agent-specific
+    validations: {required: true}
+  - type: input
+    id: terminal
+    attributes:
+      label: Terminal or IDE
+      description: Where the agent was running. Pane-accurate jumps depend on this.
+      placeholder: iTerm2 / tmux inside Ghostty / VS Code
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you expected, and what you got instead.
+    validations: {required: true}
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. …
+        2. …
+        3. …
+  - type: textarea
+    id: extra
+    attributes:
+      label: Screenshot or anything else
+      description: Optional. Drag images straight in.
