@@ -49,6 +49,10 @@ app itself, cryptographically verified before they install.
 - Permission mode surfaced only when it isn't `default` — plan, accept-edits,
   bypass change what an agent does *without asking*.
 
+**Survive a relaunch**
+- Glancet reads the agents' own transcripts on launch, so an update or a crash
+  no longer shows "no active sessions" while three agents are mid-turn.
+
 **Act without leaving**
 - <kbd>⇧⌘G</kbd> opens the panel on whichever screen your cursor is on.
 - Click a session — or <kbd>⌘1</kbd>–<kbd>⌘5</kbd> — to jump straight back to
@@ -57,6 +61,10 @@ app itself, cryptographically verified before they install.
   (off by default). Silence never approves anything: if Glancet isn't running,
   is quit mid-decision, or you simply ignore it, the prompt appears in your
   terminal exactly as it does today.
+- **Reply from the panel.** A finished session grows a reply field — type a
+  follow-up and it's typed into that session's terminal. Only for finished
+  sessions, and only where the exact pane can be addressed (tmux, iTerm2):
+  keystrokes aimed at "whatever is frontmost" land in the wrong shell.
 - Rename any session; the name sticks to the project across restarts.
 
 **Claude usage**
@@ -67,23 +75,30 @@ app itself, cryptographically verified before they install.
 
 ## Agents
 
-Ten agents connect today. **Verified** means exercised end to end against a real
-install. **Beta** means the integration was written against that agent's own
-published hooks reference and is labelled beta in Settings until someone runs it.
+Ten agents connect today, and every one has been exercised end to end against a
+real install.
 
-| Agent | Status |
+| Agent | Notes |
 |---|---|
-| Claude Code | **verified** — the fully wired one: approvals, questions, usage limits, transcript enrichment |
-| Gemini CLI | **verified** |
-| Codex, Cursor, Kimi CLI, Qwen Code, Qoder, CodeBuddy, Factory, OpenCode | beta |
+| Claude Code | the fully wired one: approvals, questions, usage limits, transcript enrichment |
+| Gemini CLI | hooks run synchronously there, so Glancet's stay async and short |
+| Codex, Cursor, Kimi CLI, Qwen Code, Qoder, CodeBuddy, Factory, OpenCode | connected via each agent's own hook or plugin format |
+
+A newly added agent carries a **beta** tag in Settings until someone has
+actually run it — Glancet doesn't claim more than has been measured. Nothing
+carries it right now.
 
 Agents appear in Settings only once they are actually installed — presence means
 the agent has written a file into its config directory, not merely that the
 directory exists.
 
-Jumps land on the exact pane in **iTerm2, tmux, WezTerm and kitty**. Everywhere
-else — Terminal.app, Ghostty, Warp, Alacritty, VS Code, Cursor, the JetBrains
-IDEs — Glancet raises the project's window instead.
+Jumps land on the exact pane in **iTerm2, tmux, WezTerm, kitty and Terminal.app**
+(the last matched by its controlling terminal). Everywhere else — Ghostty, Warp,
+Alacritty, VS Code, Cursor, the JetBrains IDEs — Glancet raises the project's
+window instead.
+
+No notch? The same always-on capsule sits under the menu bar instead, and the
+menu-bar icon can be switched off entirely if you'd rather have neither.
 
 ## Privacy
 
@@ -103,8 +118,9 @@ not open source, so there is no application code here. Use the
 [issues](../../issues) for anything you hit, and star the repo if it is useful
 to you.
 
-The app is a 7-day trial, then a one-time unlock — a perpetual licence, not a
-subscription, valid on one Mac at a time and movable as often as you like.
+**Free while it's in beta** — the full app, no card, no account. When the store
+opens it becomes a one-time unlock: a perpetual licence, not a subscription,
+valid on one Mac at a time and movable as often as you like.
 
 - [Website](https://glancet.io) · [Changelog](https://glancet.io/changelog) · [Support](https://glancet.io/support)
 - [Privacy](https://glancet.io/privacy) · [EULA](https://glancet.io/eula) · [Refunds](https://glancet.io/refunds)
