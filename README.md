@@ -75,27 +75,35 @@ app itself, cryptographically verified before they install.
 
 ## Agents
 
-Ten agents connect today, and every one has been exercised end to end against a
-real install.
+Fourteen agents connect today. Eleven have been exercised end to end against a
+real install; Grok Build, pi and Oh My Pi are new and marked **beta**.
 
 | Agent | Notes |
 |---|---|
 | Claude Code | the fully wired one: approvals, questions, usage limits, transcript enrichment |
 | Gemini CLI | hooks run synchronously there, so Glancet's stay async and short |
-| Codex, Cursor, Kimi CLI, Qwen Code, Qoder, CodeBuddy, Factory, OpenCode | connected via each agent's own hook or plugin format |
+| Codex, Cursor, Kimi CLI, Qwen Code, Qoder, CodeBuddy, Factory, OpenCode, ZCode | connected via each agent's own hook or plugin format |
+| Grok Build, pi, Oh My Pi | **beta** — written from their hook/extension formats, not yet run against a real install |
 
 A newly added agent carries a **beta** tag in Settings until someone has
-actually run it — Glancet doesn't claim more than has been measured. Nothing
-carries it right now.
+actually run it — Glancet doesn't claim more than has been measured.
 
 Agents appear in Settings only once they are actually installed — presence means
 the agent has written a file into its config directory, not merely that the
 directory exists.
 
-Jumps land on the exact pane in **iTerm2, tmux, WezTerm, kitty and Terminal.app**
-(the last matched by its controlling terminal). Everywhere else — Ghostty, Warp,
-Alacritty, VS Code, Cursor, the JetBrains IDEs — Glancet raises the project's
-window instead.
+Jumps land on the exact pane in **iTerm2, tmux, Zellij, cmux, WezTerm, kitty and
+Terminal.app** (the last matched by its controlling terminal). **Ghostty** lands
+on the exact tab when only one of its terminals is in the session's folder.
+**VS Code, Cursor and Windsurf** bring forward the window showing the project.
+Everywhere else — Warp, Alacritty, Zed, the JetBrains IDEs — Glancet raises the
+project's window instead. With **yabai** installed, the jump also crosses Spaces.
+
+Running Claude Code with `CLAUDE_CONFIG_DIR` (a second account, say)? Add that
+directory in Settings → Agents and its sessions show up too.
+
+To keep one process out of Glancet entirely — a scripted `claude -p` run, CI —
+start it with `GLANCET_SKIP=1`.
 
 No notch? The same always-on capsule sits under the menu bar instead, and the
 menu-bar icon can be switched off entirely if you'd rather have neither.

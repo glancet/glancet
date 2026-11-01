@@ -37,6 +37,9 @@ body:
         - CodeBuddy
         - Factory
         - OpenCode
+        - ZCode
+        - Grok Build
+        - pi / Oh My Pi
         - Not agent-specific
     validations: {required: true}
   - type: input
@@ -44,7 +47,7 @@ body:
     attributes:
       label: Terminal or IDE
       description: Where the agent was running. Pane-accurate jumps depend on this.
-      placeholder: iTerm2 / tmux inside Ghostty / VS Code
+      placeholder: iTerm2 / tmux inside Ghostty / cmux / Zellij / VS Code
   - type: textarea
     id: what
     attributes:
